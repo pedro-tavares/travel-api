@@ -10,7 +10,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/travel")
-public class Index {
+public class IndexController {
 
     @GetMapping("")
     Map<String, String> index(){
