@@ -12,10 +12,10 @@ import java.util.Map;
 @RequestMapping("/travel")
 public class IndexController {
 
-    @GetMapping("")
+    @GetMapping()
     Map<String, String> index(){
         Map<String, String> map = new HashMap<String, String>();
-        map.put("title", "TravelAPI");
+        map.put("title", "travel-api");
         map.put("date", new Date().toString());
         return  map;
     }
