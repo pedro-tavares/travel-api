@@ -88,6 +88,8 @@ public class ApplicationTests {
 	public void testGetLocationByTypeAndCode() {
 		Location location = locationService.getLocationByTypeAndCode(KNOWN_TYPE, KNOWN_CODE);
 		System.out.println("\ntestGetLocationByTypeAndCode:\n" + location);
+		assertNotNull(location);
+		assertEquals(KNOWN_LOCATION_ID, location.getId());
 	}
 	
 }
