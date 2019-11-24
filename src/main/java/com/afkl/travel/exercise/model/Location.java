@@ -1,7 +1,10 @@
 package com.afkl.travel.exercise.model;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -20,9 +23,9 @@ public class Location {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer id;
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "location")
-	List<Translation> translations;
-
+	@OneToMany(targetEntity=Translation.class, mappedBy="location", cascade=CascadeType.ALL, fetch=FetchType.LAZY) 
+	List<Translation> translations = new ArrayList<Translation>();
+	
 	String code;
 	String type;
 	Double longitude;
