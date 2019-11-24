@@ -8,6 +8,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -77,10 +78,12 @@ public class ApplicationTests {
 	@Test
 	@Order(5) 
 	public void testGetLocationById() {
-		Location location = locationService.getLocationById(KNOWN_LOCATION_ID);
+		Optional<Location> location = locationService.getLocationById(KNOWN_LOCATION_ID);
 		System.out.println("\ntestGetLocationById:\n" + location);
 		assertNotNull(location);
-		assertEquals(KNOWN_LOCATION_ID, location.getId());
+		location.ifPresent(loc -> {
+		    assertEquals(KNOWN_LOCATION_ID, loc.getId());
+		});
 	}
 	
 	@Test

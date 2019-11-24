@@ -1,6 +1,7 @@
 package com.afkl.travel.exercise.service.implementation;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,8 +26,8 @@ public class LocationServiceImpl implements LocationService {
 	}
 
 	@Override	
-	public Location getLocationById(Integer id) {
-		return locationRepo.findOne(id);
+	public Optional<Location> getLocationById(Integer id) {
+		return locationRepo.findById(id);
 	}
 
 	@Override
